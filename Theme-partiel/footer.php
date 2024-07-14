@@ -22,18 +22,11 @@
                 <h3>CEO</h3>
                 <p>+33 12345678.</p>
                 <p>ceo@esgi.fr</p>
+                <ul>
+                    <li><a href="#"><?= esgi_get_icon('facebook'); ?></a></li>
+                    <li><a href="#"><?= esgi_get_icon('linkedin'); ?></a></li>
+                </ul>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div><p>&copy; <?= date('Y') ?> by esgi</p></div>
-        <div></div>
-        <div></div>
-        <div>
-            <ul>
-                <li><a href="#"><?= esgi_get_icon('facebook'); ?></a></li>
-                <li><a href="#"><?= esgi_get_icon('linkedin'); ?></a></li>
-            </ul>
         </div>
     </div>
 </footer>

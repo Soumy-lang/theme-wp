@@ -67,6 +67,25 @@ function esgi_get_icon($name)
 add_action('customize_register', 'esgi_customize_register');
 function esgi_customize_register($wp_customize)
 {
+    // Reunir les parametres titres et contenus de la section About us
+    $titles = [
+        'about_us_title' => [
+            'default' => 'About us',
+            'label' => __('About us title', 'ESGI')
+        ],
+        'who_we_are' => [
+            'default' => 'Who we are ?',
+            'label' => __('Who we are title', 'ESGI')
+        ],
+        'our_vision' => [
+            'default' => 'Our vision',
+            'label' => __('Our vision title', 'ESGI')
+        ],
+        'our_mission' => [
+            'default' => 'Our mission',
+            'label' => __('Our mission title', 'ESGI')
+        ]
+    ];
 
     // Ajout d'une nouvelle section
     $wp_customize->add_section('esgi_section', [
@@ -78,7 +97,7 @@ function esgi_customize_register($wp_customize)
         'theme_supports' => '', // Rarely needed.
     ]);
 
-    // Ajout d'un nouveau parametre pour le titre de la homepage
+    // Ajout d'un nouveau parametre pour le grand titre de la homepage
     $wp_customize->add_setting('homepage_title', [
         'type' => 'theme_mod', // or 'option'
         'capability' => 'edit_theme_options',
@@ -87,7 +106,7 @@ function esgi_customize_register($wp_customize)
         'sanitize_callback' => 'sanitize_text_field',
     ]);
 
-    // Ajout d'un controle pour le titre de la homepage
+    // Ajout d'un controle pour le grand titre de la homepage
     $wp_customize->add_control('homepage_title', [
         'label' => __('Homepage Title', 'ESGI'),
         'section' => 'esgi_section',
@@ -110,24 +129,8 @@ function esgi_customize_register($wp_customize)
         'settings' => 'homepage_image',
     ]));
 
-    // Ajout d'un nouveau parametre pour le contenu textuel de la homepage
-    $wp_customize->add_setting('homepage_content', [
-        'type' => 'theme_mod', // or 'option'
-        'capability' => 'edit_theme_options',
-        'default' => 'Welcome to our events platform! We provide professional services to make your events memorable.',
-        'transport' => 'refresh', // or postMessage
-        'sanitize_callback' => 'wp_kses_post',
-    ]);
-
-    // Ajout d'un controle pour le contenu textuel de la homepage
-    $wp_customize->add_control('homepage_content', [
-        'label' => __('Homepage Content', 'ESGI'),
-        'section' => 'esgi_section',
-        'type' => 'textarea',
-    ]);
-
-    // Ajout d'un nouveau parametre pour la 2eme image
-    $wp_customize->add_setting('homepage_image_2', [
+    // Ajout d'un nouveau parametre pour l'image about us page
+    $wp_customize->add_setting('about_us_image', [
         'type' => 'theme_mod', // Type de paramètre (thème)
         'capability' => 'edit_theme_options',
         'default' => get_template_directory_uri() . '/assets/images/png/2.png',
@@ -135,14 +138,241 @@ function esgi_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw',
     ]);
 
-    // Ajout d'un controle pour la 2eme image de la homepage
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'homepage_image_2_control', [
-        'label' => __('Homepage Image 2', 'ESGI'),
+    // Ajout d'un controle pour l'image about us page
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'about_us_image_control', [
+        'label' => __('About us image', 'ESGI'),
         'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
-        'settings' => 'homepage_image_2', // Clé du paramètre à associer
+        'settings' => 'about_us_image', // Clé du paramètre à associer
     ]));
 
+    // Ajout d'un nouveau parametre pour le contenu textuel de la about us page
+    $wp_customize->add_setting('about_us_content', [
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => 'Welcome to our events platform! We provide professional services to make your events memorable.',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'wp_kses_post',
+    ]);
+
+    // Ajout d'un controle pour le contenu textuel de la la about us page
+    $wp_customize->add_control('about_us_content', [
+        'label' => __('About us content', 'ESGI'),
+        'section' => 'esgi_section',
+        'type' => 'textarea',
+    ]);
+
+    foreach ($titles as $key => $value) {
+        // Ajout d'un nouveau paramètre pour le titre
+        $wp_customize->add_setting("{$key}_title", [
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => $value['default'],
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+        ]);
+
+        // Ajout d'un contrôle pour le titre
+        $wp_customize->add_control("{$key}_title", [
+            'label' => $value['label'],
+            'section' => 'esgi_section',
+            'type' => 'text',
+        ]);
+
+        // Ajout d'un nouveau paramètre pour le contenu
+        $wp_customize->add_setting("{$key}_content", [
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => 'Specializing in the creation of exceptional',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'wp_kses_post',
+        ]);
+
+        // Ajout d'un contrôle pour le contenu
+        $wp_customize->add_control("{$key}_content", [
+            'label' => $value['label'] . ' Content',
+            'section' => 'esgi_section',
+            'type' => 'textarea',
+        ]);
+    }
+
+    // Ajout d'un nouveau parametre pour le titre de Our service
+    $wp_customize->add_setting('services_title', [
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => 'Our Services',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    // Ajout d'un controle pour le titre de Our service
+    $wp_customize->add_control('services_title', [
+        'label' => __('Our Services Title', 'ESGI'),
+        'section' => 'esgi_section',
+        'type' => 'text',
+    ]);
+
+    // Ajout des parametres pour les images de Our services
+    $wp_customize->add_setting('service_image1', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/png/3.png',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'service_image1_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'service_image1', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('service_image2', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/png/4.png',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'service_image2_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'service_image2', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('service_image3', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/png/5.png',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'service_image3_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'service_image3', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('service_image4', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/png/6.png',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'service_image4_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'service_image4', // Clé du paramètre à associer
+    ]));
+
+    // Ajout d'un nouveau parametre pour le titre de Our partners
+    $wp_customize->add_setting('partners_title', [
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => 'Our Partners',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    // Ajout d'un controle pour le titre de Our partners
+    $wp_customize->add_control('partners_title', [
+        'label' => __('Our partners Title', 'ESGI'),
+        'section' => 'esgi_section',
+        'type' => 'text',
+    ]);
+
+    // Ajout des parametres pour les images de Our Partners
+    $wp_customize->add_setting('partners_image1', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/svg/partner-1.svg',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners_image1_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'partners_image1', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('partners_image2', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/svg/partner-2.svg',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners_image2_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'partners_image2', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('partners_image3', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/svg/partner-3.svg',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners_image3_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'partners_image3', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('partners_image4', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/svg/partner-4.svg',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners_image4_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'partners_image4', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('partners_image5', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/png/svg/partner-5.svg',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners_image5_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'partners_image5', // Clé du paramètre à associer
+    ]));
+
+    $wp_customize->add_setting('partners_image6', [
+        'type' => 'theme_mod', // Type de paramètre (thème)
+        'capability' => 'edit_theme_options',
+        'default' => get_template_directory_uri() . '/assets/images/svg/partner-6.svg',
+        'transport' => 'refresh', // Méthode de rafraîchissement
+        'sanitize_callback' => 'esc_url_raw',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners_image6_control', [
+        'label' => __('About us image', 'ESGI'),
+        'section' => 'esgi_section', // Nom de la section où le contrôle est ajouté
+        'settings' => 'partners_image6', // Clé du paramètre à associer
+    ]));
+
+
 }
+
+
 
 function esgi_sanitize_bool($value)
 {
@@ -160,24 +390,3 @@ function esgi_custom_styles()
             </style>';
 }
 
-// // Calls AJAX
-
-// add_action('wp_ajax_load_posts', 'ajax_load_posts');
-// add_action('wp_ajax_nopriv_load_posts', 'ajax_load_posts');
-
-// function ajax_load_posts()
-// {
-//     // Récupérer la page demandée (un des parametres du call)
-//     $paged = $_GET['paged'];
-
-//     // Ouvrir le buffer php
-//     ob_start();
-
-//     // Inclusion du template-part posts-list
-//     include('template-parts/posts-list.php');
-
-//     // Renvoie du buffer et suppression de celui-ci
-
-//     echo ob_get_clean();
-//     wp_die();
-// }

@@ -1,0 +1,62 @@
+.about-home-page {
+    width: 90%;
+    margin-left: auto;
+    text-align: left;
+
+    p{
+        width: 50%;
+        margin-right: auto;
+    }
+}
+
+.texts-about-us {
+    flex: 1 1 auto;
+    margin-top: 100px;
+}
+
+.texts-about-us > div {
+    margin-bottom: 20px; 
+    padding-right: 20px;
+}
+
+.about-us-page {
+    padding: 20px;
+}
+
+.about-home-page h1 {
+    font-size: 2em;
+}
+
+.about-home-page p {
+    font-size: 1.2em;
+}
+
+.about-who-we-are-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.image-on-left img {
+    max-width: 100%; 
+    width: 300px; 
+    height: auto; 
+}
+
+.texts-about-us {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    width: 50%;
+    height: auto;
+}
+
+.texts-about-us h1 {
+    font-size: 1.5em;
+}
+
+.texts-about-us p {
+    font-size: 1.1em;
+}
+
+

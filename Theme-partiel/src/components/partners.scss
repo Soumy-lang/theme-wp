@@ -1,0 +1,14 @@
+.our-partners-images {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: space-between;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.partners-image img {
+    width: 100%; 
+    height: 80%;
+    display: block; 
+}
+

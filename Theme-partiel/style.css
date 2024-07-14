@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /**
- * Theme Name:        Partiel de panorama des CMS
+ * Theme Name:        Theme du 14/07
  * Theme URI:         https://www.esgi.fr
  * Description:       Thème de soutenance :)
  * Version:           1.0.0
@@ -28,7 +28,7 @@
 #site-footer {
   background-color: rgb(21, 41, 83);
   color: white;
-  padding: 20px 0; /* Espace intérieur du footer */
+  padding: 20px 0;
   width: 100%;
   height: 20vh;
   bottom: 0;
@@ -37,9 +37,9 @@
 
 .container {
   display: flex;
-  flex-wrap: wrap; /* Pour aligner les sections en lignes */
-  justify-content: space-around; /* Pour espacer les sections */
-  margin: 0 auto; /* Centrer le contenu */
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
 }
 
 .footer-section-content {
@@ -49,14 +49,14 @@
 .footer-section img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 10px; /* Espacement sous l'image */
+  margin-bottom: 10px;
 }
 
 .footer-section p {
   margin: 10px 0;
+  text-align: right;
 }
 
-/* Styles pour la navigation principale */
 .site-nav {
   position: fixed;
   top: 0;
@@ -67,12 +67,12 @@
   color: #fff;
   padding: 50px;
   box-sizing: border-box;
-  z-index: 1000; /* Assure que la navigation soit au-dessus du contenu */
-  display: none; /* Initialement cachée */
+  z-index: 1000;
+  display: none;
 }
 
 .site-nav.open {
-  display: block; /* Affiche la navigation lorsqu'elle est ouverte */
+  display: block;
 }
 
 .site-nav ul {
@@ -81,16 +81,16 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Aligner les liens à droite */
+  justify-content: flex-end;
   align-items: flex-end;
 }
 
 .site-nav ul li {
-  margin-left: 20px; /* Espacement entre les éléments du menu */
+  margin-left: 20px;
 }
 
 .site-nav ul li:first-child {
-  margin-left: 0; /* Pas de marge à gauche pour le premier élément */
+  margin-left: 0;
 }
 
 .site-nav ul li a {
@@ -101,14 +101,14 @@
 }
 
 .site-nav ul li a:hover {
-  color: #f0f0f0; /* Couleur au survol */
+  color: #f0f0f0;
 }
 
 .site-nav .logo {
   position: absolute;
   top: 10px;
   left: 20px;
-  width: auto; /* Ajustez la taille de l'image */
+  width: auto;
   height: auto;
 }
 
@@ -117,11 +117,11 @@
   top: 20px;
   right: 20px;
   cursor: pointer;
-  z-index: 1100; /* Assure que le bouton soit au-dessus de la navigation */
+  z-index: 1100;
 }
 
 .menu-toggle img {
-  width: 30px; /* Ajustez la taille de l'icône si nécessaire */
+  width: 30px;
   height: auto;
 }
 
@@ -131,10 +131,9 @@
   left: 20px;
 }
 
-/* Ajustements supplémentaires selon la disposition de votre header */
 header, .logo-bloc-container {
   display: flex;
-  align-items: center; /* Pour aligner verticalement au centre */
+  align-items: center;
 }
 
 .text-home-page {
@@ -153,28 +152,13 @@ header, .logo-bloc-container {
 }
 
 .about-home-page {
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   text-align: left;
 }
 .about-home-page p {
   width: 50%;
   margin-right: auto;
-}
-
-.about-who-we-are-home-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.image-on-left {
-  text-align: left;
-}
-.image-on-left img {
-  max-width: 80%;
-  height: auto;
 }
 
 .texts-about-us {
@@ -187,8 +171,79 @@ header, .logo-bloc-container {
   padding-right: 20px;
 }
 
-main {
-  margin: 60px;
+.about-us-page {
+  padding: 20px;
+}
+
+.about-home-page h1 {
+  font-size: 2em;
+}
+
+.about-home-page p {
+  font-size: 1.2em;
+}
+
+.about-who-we-are-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.image-on-left img {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+}
+
+.texts-about-us {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  width: 50%;
+  height: auto;
+}
+
+.texts-about-us h1 {
+  font-size: 1.5em;
+}
+
+.texts-about-us p {
+  font-size: 1.1em;
+}
+
+.our-services-images {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.image-on-page {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+}
+
+.our-partners-images {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.partners-image img {
+  width: 100%;
+  height: 80%;
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */
