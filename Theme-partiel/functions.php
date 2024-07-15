@@ -369,6 +369,26 @@ function esgi_customize_register($wp_customize)
         'settings' => 'partners_image6', // Clé du paramètre à associer
     ]));
 
+    // Ajout du paramètre pour la barre de recherche
+    $wp_customize->add_setting('has_search_barre', [
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'theme_supports' => '', // Rarement nécessaire.
+        'default' => '', // Valeur par défaut
+        'transport' => 'refresh', // ou postMessage
+        'sanitize_callback' => 'esgi_sanitize_bool',
+        'sanitize_js_callback' => '', // Essentiellement pour to_json.
+    ]);
+
+    // Ajout du contrôle pour la barre de recherche
+    $wp_customize->add_control('has_search_barre', [
+        'type' => 'checkbox',
+        'priority' => 1, // Ordre dans la section, ajuste selon tes besoins
+        'section' => 'esgi_section', // Requis, core ou custom.
+        'label' => __('Search Bar for the 404 page'),
+        'description' => __('Enable search bar.'),
+    ]);
+
 
 }
 

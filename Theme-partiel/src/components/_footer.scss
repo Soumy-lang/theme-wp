@@ -21,6 +21,13 @@
     left: 0;
 }
 
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999; 
+}
+
 .container {
     display: flex;
     flex-wrap: wrap; 
