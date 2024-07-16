@@ -8,3 +8,9 @@
     width: calc((100%) / 4);
     box-sizing: border-box;
 }
+
+@media only screen and (max-width: 1200px) {
+    .result-bloc {
+        width: calc(100% / 3);
+    }
+}

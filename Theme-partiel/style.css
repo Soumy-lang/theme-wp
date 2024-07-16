@@ -65,6 +65,27 @@
   text-align: right;
 }
 
+@media only screen and (max-width: 768px) {
+  .container ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container ul li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  #site-footer {
+    height: auto;
+    padding: 20px 10px;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section p {
+    text-align: center;
+  }
+}
 .site-nav {
   position: fixed;
   top: 0;
@@ -144,6 +165,33 @@ header, .logo-bloc-container {
   align-items: center;
 }
 
+@media only screen and (max-width: 768px) {
+  .site-nav {
+    height: auto;
+    padding: 20px;
+  }
+  .site-nav ul {
+    align-items: center;
+  }
+  .site-nav ul li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  .site-nav ul li a {
+    font-size: 16px;
+  }
+  .menu-toggle {
+    top: 10px;
+    right: 10px;
+  }
+  .menu-toggle img {
+    width: 25px;
+  }
+  .logo-bloc-container {
+    top: 5px;
+    left: 10px;
+  }
+}
 .text-home-page {
   margin: 10px;
   width: 60%;
@@ -160,6 +208,22 @@ header, .logo-bloc-container {
   height: auto;
 }
 
+@media only screen and (max-width: 768px) {
+  .text-home-page {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .text-home-page h1 {
+    font-size: 2em;
+  }
+  .image-home-page {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .image-home-page img {
+    max-width: 100%;
+  }
+}
 .about-home-page {
   width: 80%;
   margin-left: auto;
@@ -235,6 +299,39 @@ header, .logo-bloc-container {
   object-fit: cover;
 }
 
+@media only screen and (max-width: 768px) {
+  .about-home-page {
+    width: 100%;
+  }
+  .about-home-page p {
+    width: 100%;
+  }
+  .about-who-we-are-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .image-on-left img {
+    width: 100%;
+  }
+  .texts-about-us {
+    width: 100%;
+    margin: 20px;
+  }
+  .texts-about-us h1 {
+    font-size: 1.2em;
+  }
+  .texts-about-us p {
+    font-size: 1em;
+  }
+  .our-team-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-image {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
 .our-services-images {
   display: flex;
   flex-wrap: nowrap;
@@ -256,6 +353,29 @@ header, .logo-bloc-container {
   margin: 0;
 }
 
+@media only screen and (max-width: 992px) {
+  .our-services-images {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .service-image {
+    width: 45%;
+    margin-bottom: 10px;
+  }
+  .service-image img {
+    width: 100%;
+    height: auto;
+  }
+  .image-on-page {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .service-image {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 .our-partners-images {
   margin: 10px;
   display: flex;
@@ -275,6 +395,23 @@ header, .logo-bloc-container {
   margin: 80px 0;
 }
 
+@media only screen and (max-width: 768px) {
+  .our-partners-images {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .partners-image {
+    width: 45%;
+    margin-bottom: 10px;
+  }
+  .partners-image img {
+    width: 100%;
+    height: auto;
+  }
+  .partners-content {
+    margin: 40px 0;
+  }
+}
 .error-page {
   background-color: rgb(21, 41, 83);
   padding: 80px;
@@ -311,6 +448,26 @@ header, .logo-bloc-container {
   color: white;
 }
 
+@media only screen and (max-width: 768px) {
+  .error-page {
+    padding: 40px;
+    height: auto; /* Permet à la hauteur de s'ajuster au contenu */
+  }
+  .error-content {
+    width: 100%;
+    padding: 10px;
+  }
+  .error-content h1 {
+    font-size: 1.5em;
+  }
+  .error-content p {
+    font-size: 1em;
+  }
+  .search-form input.search-field {
+    font-size: 1em;
+    padding: 8px;
+  }
+}
 .search-results {
   display: flex;
   flex-direction: row;
@@ -322,6 +479,11 @@ header, .logo-bloc-container {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 1200px) {
+  .result-bloc {
+    width: 33.3333333333%;
+  }
+}
 * {
   font-family: "Montserrat", sans-serif;
   line-height: 1.15;
@@ -340,6 +502,15 @@ body {
 
 .focus-middle {
   margin: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .focus-middle {
+    margin: 30px auto;
+  }
+  body {
+    font-size: 16px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

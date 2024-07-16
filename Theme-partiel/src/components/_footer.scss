@@ -49,3 +49,29 @@
     margin: 10px 0;
     text-align: right;
 }
+
+@media only screen and (max-width: 768px) {
+    .container ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    #site-footer {
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section p {
+        text-align: center;
+    }
+}

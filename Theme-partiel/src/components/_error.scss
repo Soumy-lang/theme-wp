@@ -34,3 +34,27 @@
     color: white;
 }
 
+@media only screen and (max-width: 768px) {
+    .error-page {
+        padding: 40px;
+        height: auto; /* Permet à la hauteur de s'ajuster au contenu */
+    }
+
+    .error-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .error-content h1 {
+        font-size: 1.5em;
+    }
+
+    .error-content p {
+        font-size: 1em;
+    }
+
+    .search-form input.search-field {
+        font-size: 1em;
+        padding: 8px;
+    }
+}

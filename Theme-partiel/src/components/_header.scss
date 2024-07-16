@@ -76,3 +76,37 @@ header, .logo-bloc-container {
     display: flex;
     align-items: center; 
 }
+
+@media only screen and (max-width: 768px) {
+    .site-nav {
+        height: auto;
+        padding: 20px;
+    }
+
+    .site-nav ul {
+        align-items: center;
+    }
+
+    .site-nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .site-nav ul li a {
+        font-size: 16px;
+    }
+
+    .menu-toggle {
+        top: 10px;
+        right: 10px;
+    }
+
+    .menu-toggle img {
+        width: 25px;
+    }
+
+    .logo-bloc-container {
+        top: 5px;
+        left: 10px;
+    }
+}

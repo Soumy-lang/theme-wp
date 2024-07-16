@@ -19,3 +19,13 @@ body{
 .focus-middle{
     margin: 50px;
 }
+
+@media only screen and (max-width: 768px) {
+    .focus-middle {
+        margin: 30px auto;
+    }
+
+    body {
+        font-size: 16px; 
+    }
+}

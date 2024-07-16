@@ -78,5 +78,44 @@
     object-fit: cover; 
 }
 
+@media only screen and (max-width: 768px) {
+    .about-home-page {
+        width: 100%;
+    }
 
+    .about-home-page p {
+        width: 100%;
+    }
 
+    .about-who-we-are-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-on-left img {
+        width: 100%;
+    }
+
+    .texts-about-us {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .texts-about-us h1 {
+        font-size: 1.2em;
+    }
+
+    .texts-about-us p {
+        font-size: 1em;
+    }
+
+    .our-team-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-image {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

@@ -14,3 +14,22 @@
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .text-home-page {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .text-home-page h1 {
+        font-size: 2em;
+    }
+
+    .image-home-page {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .image-home-page img {
+        max-width: 100%;
+    }
+}
