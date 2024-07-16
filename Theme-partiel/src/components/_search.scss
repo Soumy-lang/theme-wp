@@ -1,0 +1,10 @@
+.search-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+
+.result-bloc {
+    width: calc((100%) / 4);
+    box-sizing: border-box;
+}

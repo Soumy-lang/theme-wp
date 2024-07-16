@@ -1,8 +1,5 @@
 <section class="partners-page">
-    <div class="about-home-page">
-        <h1><?php echo esc_html(get_theme_mod('partners_title', 'Our Partners')); ?></h1>
-    </div>
-    <br>
+    <div class="text-home-page"><h1><?php echo esc_html(get_theme_mod('partners_title', 'Our Partners')); ?></h1></div><br>
     
     <div class="our-partners-images">
         <div class="partner-image"><img src="<?php echo esc_url(get_theme_mod('partners_image1', get_template_directory_uri() . '/assets/images/svg/partner-1.svg')); ?>" alt="partners"></div>

@@ -161,7 +161,7 @@ header, .logo-bloc-container {
 }
 
 .about-home-page {
-  width: 90%;
+  width: 80%;
   margin-left: auto;
   text-align: left;
 }
@@ -180,10 +180,6 @@ header, .logo-bloc-container {
   padding-right: 20px;
 }
 
-.about-us-page {
-  padding: 20px;
-}
-
 .about-home-page h1 {
   font-size: 2em;
 }
@@ -200,7 +196,7 @@ header, .logo-bloc-container {
 
 .image-on-left img {
   max-width: 100%;
-  width: 300px;
+  width: 400px;
   height: auto;
 }
 
@@ -218,6 +214,25 @@ header, .logo-bloc-container {
 
 .texts-about-us p {
   font-size: 1.1em;
+}
+
+.our-team-images {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
+  justify-content: space-around;
+}
+
+.team-image {
+  margin: 10px;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .our-services-images {
@@ -261,8 +276,9 @@ header, .logo-bloc-container {
 }
 
 .error-page {
-  height: 100vh;
   background-color: rgb(21, 41, 83);
+  padding: 80px;
+  height: 50vh;
 }
 
 .error-content {
@@ -279,7 +295,6 @@ header, .logo-bloc-container {
 
 .search-bar-container {
   width: 100%;
-  margin-top: 20px;
 }
 
 .search-form {
@@ -290,7 +305,20 @@ header, .logo-bloc-container {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
+  background-color: transparent;
   border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.result-bloc {
+  width: 25%;
   box-sizing: border-box;
 }
 
@@ -304,6 +332,14 @@ header, .logo-bloc-container {
 
 body {
   margin: 0;
+}
+
+#site-main {
+  margin-top: 100px;
+}
+
+.focus-middle {
+  margin: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

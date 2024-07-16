@@ -6,7 +6,7 @@ Template Name: 404
 
 <?php get_header() ?>
 <section class="error-page">
-    <main id="site-main">
+    <main >
     <div class="logo-bloc-container"><?php get_template_part('template-parts/logo-in-header'); ?></div>
         <div class="error-content">
             <div>
@@ -21,6 +21,4 @@ Template Name: 404
         </div>
     </main>
 </section>
-
-
 <?php get_footer() ?>
